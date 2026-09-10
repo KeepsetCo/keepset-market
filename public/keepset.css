@@ -108,16 +108,14 @@ h1 {
 }
 
 .menu a {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
+  display: block;
   min-height: var(--touch);
-  padding: 0.9375rem 1.125rem;
   background: var(--raised);
   border: 1px solid var(--border);
   border-radius: 0.5rem;
   color: inherit;
   text-decoration: none;
+  overflow: hidden;
   transition: border-color 120ms cubic-bezier(0.2, 0, 0.2, 1);
 }
 
@@ -131,51 +129,44 @@ h1 {
   outline-offset: 2px;
 }
 
-/* The count. Set in the sans, not the display serif: Cormorant's figures are old-style,
-   and its 1 sits at x-height — "1 magnet" reads as "I magnet" at a glance, which is the
-   one number on this page nobody should have to look at twice. */
-.count {
-  flex: none;
-  width: 3.5rem;
-  font-size: 1.625rem;
-  font-weight: 500;
-  line-height: 1;
-  color: var(--navy);
-  text-align: center;
-  font-variant-numeric: tabular-nums;
-}
+/* The photograph is the menu. Two products that are easy to confuse in words — "nine
+   magnets" against "a mosaic of nine" — are unmistakable side by side, so the picture
+   carries the distinction and the sentence underneath only confirms it.
 
-.count small {
+   Squared off with object-fit rather than cropped files, because the two source shots are
+   different shapes and a menu of mismatched tiles reads as an accident. Width and height
+   are on the element so nothing reflows once they land. */
+.shot {
   display: block;
-  font-family: var(--sans);
-  font-size: 0.5625rem;
-  letter-spacing: 0.08em;
-  white-space: nowrap;
-  text-transform: uppercase;
-  color: var(--ink-muted);
-  margin-top: 0.25rem;
+  width: 100%;
+  /* `height: auto` is load-bearing: the width/height attributes on the element are there so
+     the layout does not jump when the file lands, and without this the attribute wins and
+     the tile renders at the source photograph's own height. */
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+  background: var(--sunken);
 }
 
 .what {
-  flex: 1;
+  display: block;
+  padding: 0.875rem 1.125rem 1rem;
 }
 
 .what strong {
   display: block;
   font-weight: 400;
-  font-size: 1.0625rem;
+  font-size: 1.1875rem;
+  color: var(--navy);
 }
 
 .what span {
   display: block;
-  font-size: 0.875rem;
+  font-size: 0.9375rem;
   color: var(--ink-muted);
-  line-height: 1.4;
-}
-
-.chev {
-  flex: none;
-  color: var(--ink-muted);
+  line-height: 1.45;
+  margin-top: 0.125rem;
+  text-wrap: pretty;
 }
 
 /* --- how it works ----------------------------------------------------- */

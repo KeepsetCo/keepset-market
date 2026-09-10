@@ -12,17 +12,21 @@
   </head>
   <body>
     <!--
-      Every link below goes to the booth app's scan route, never straight to the storefront.
-      That indirection is the security model: the booth token is handed out by the redirect,
-      so photographing the QR on the sign gets you a URL that does nothing on its own, and
-      switching a link off in the booth app stops it issuing tokens without breaking any
-      printed sign. See booth-app/app/routes/booth.$handle.scan.tsx.
+      Both links below go to the booth app's SCAN ROUTE, never straight to the storefront.
 
-      NEVER put a token in this repo. It is public.
+      That indirection is the whole security model. The booth token is handed out by the
+      redirect at request time, so photographing the QR on the sign gets you a URL that does
+      nothing on its own, and switching a link off in the booth app stops it issuing tokens
+      without breaking any printed sign. See booth-app/app/routes/booth.$handle.scan.tsx.
 
-      The handles are hardcoded on purpose — they change rarely, and a wrong one redirects
-      to the shop front rather than erroring. They come from the booth app: open a link at
-      booth.keepsetco.com/app and read the handle out of the address bar.
+      NEVER put a `booth=` token in this repo. It is public. A storefront URL that already
+      carries one — the thing the scan route redirects TO — is exactly what must not be
+      pasted here: it would hand the token to anyone who views source, and turning the link
+      inactive would no longer revoke it.
+
+      The handles are hardcoded on purpose: they change rarely, and a wrong one redirects to
+      the shop front rather than erroring. They come from the booth app — open a link at
+      booth.keepsetco.com/app and read the handle out of the address bar, /app/booth/<handle>.
     -->
     <main class="wrap">
       <header class="masthead">
@@ -35,53 +39,21 @@
 
       <ul class="menu">
         <li>
-          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-1/scan?shop=4gnmra-cv.myshopify.com">
-            <span class="count" aria-hidden="true">1<small>magnet</small></span>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNETS/scan?shop=4gnmra-cv.myshopify.com">
+            <img class="shot" src="img/magnets.webp" alt="Nine photo magnets on a fridge door, each a different picture of the same family" width="800" height="800" loading="eager" decoding="async">
             <span class="what">
-              <strong>One magnet</strong>
-              <span>A single photo, 2½ inches square</span>
+              <strong>Photo magnets</strong>
+              <span>Lots of photos, one on each magnet. Choose one, four or nine on the next page.</span>
             </span>
-            <span class="chev" aria-hidden="true">&rsaquo;</span>
           </a>
         </li>
         <li>
-          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-4/scan?shop=4gnmra-cv.myshopify.com">
-            <span class="count" aria-hidden="true">4<small>magnets</small></span>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MOSAIC/scan?shop=4gnmra-cv.myshopify.com">
+            <img class="shot" src="img/mosaic.webp" alt="One photograph of a castle split across nine magnets to form a single picture" width="800" height="1067" loading="eager" decoding="async">
             <span class="what">
-              <strong>Four magnets</strong>
-              <span>Four different photos</span>
+              <strong>Photo mosaic</strong>
+              <span>One photo, split across a grid of magnets. Choose four or nine on the next page.</span>
             </span>
-            <span class="chev" aria-hidden="true">&rsaquo;</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-9/scan?shop=4gnmra-cv.myshopify.com">
-            <span class="count" aria-hidden="true">9<small>magnets</small></span>
-            <span class="what">
-              <strong>Nine magnets</strong>
-              <span>Nine different photos</span>
-            </span>
-            <span class="chev" aria-hidden="true">&rsaquo;</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://booth.keepsetco.com/booth/HANDLE-MOSAIC-4/scan?shop=4gnmra-cv.myshopify.com">
-            <span class="count" aria-hidden="true">4<small>mosaic</small></span>
-            <span class="what">
-              <strong>Mosaic of four</strong>
-              <span>One photo split across four magnets</span>
-            </span>
-            <span class="chev" aria-hidden="true">&rsaquo;</span>
-          </a>
-        </li>
-        <li>
-          <a href="https://booth.keepsetco.com/booth/HANDLE-MOSAIC-9/scan?shop=4gnmra-cv.myshopify.com">
-            <span class="count" aria-hidden="true">9<small>mosaic</small></span>
-            <span class="what">
-              <strong>Mosaic of nine</strong>
-              <span>One photo split across nine magnets</span>
-            </span>
-            <span class="chev" aria-hidden="true">&rsaquo;</span>
           </a>
         </li>
       </ul>
