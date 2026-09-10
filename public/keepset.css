@@ -58,7 +58,7 @@ body {
 .wrap {
   max-width: 34rem;
   margin: 0 auto;
-  padding: 2rem 1.25rem 4rem;
+  padding: 1.25rem 1.25rem 2.5rem;
 }
 
 /* --- masthead --------------------------------------------------------- */
@@ -67,22 +67,29 @@ body {
    repeating it here spends the first screen on something they have read. */
 .masthead {
   text-align: center;
-  padding-block: 0.5rem 1.75rem;
+  padding-block: 0 1rem;
 }
 
 .masthead img {
-  width: 148px;
+  width: 124px;
   height: auto;
 }
 
 /* --- the menu --------------------------------------------------------- */
 
+/* Section labels. The gap belongs to the label rather than to whatever sits above it, so
+   the rhythm holds however the page is reordered — and the first one needs none of it,
+   since the wordmark has already spaced itself. */
 .eyebrow {
   font-size: 0.75rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--ink-muted);
-  margin: 2.5rem 0 0.75rem;
+  margin: 1.75rem 0 0.625rem;
+}
+
+.masthead + .eyebrow {
+  margin-top: 0;
 }
 
 .menu {
@@ -161,7 +168,7 @@ body {
   list-style: none;
   counter-reset: step;
   margin: 0;
-  padding: 1.25rem 1.25rem 1.375rem;
+  padding: 1rem 1.125rem 1.125rem;
   background: var(--sunken);
   border-radius: 0.5rem;
   display: grid;
@@ -187,7 +194,7 @@ body {
 }
 
 .note {
-  margin: 1.25rem 0 0;
+  margin: 0.875rem 0 0;
   font-size: 0.9375rem;
   color: var(--ink-muted);
   text-wrap: pretty;
@@ -196,8 +203,8 @@ body {
 /* --- footer ----------------------------------------------------------- */
 
 .away {
-  margin-top: 2.5rem;
-  padding-top: 1.5rem;
+  margin-top: 1.75rem;
+  padding-top: 1.25rem;
   border-top: 1px solid var(--border);
   text-align: center;
   font-size: 0.9375rem;
