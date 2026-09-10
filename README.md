@@ -66,10 +66,40 @@ folder has to be regenerated and the signs reprinted.
 
 ## Deploying
 
-Cloudflare Pages, building from `main`:
+Cloudflare Pages, building from `main`.
 
-- **Build command:** none
-- **Output directory:** `public`
+| Setting | Value |
+|---|---|
+| Framework preset | None |
+| Build command | *(leave empty)* |
+| Build output directory | `public` |
+| Root directory | `/` |
 
-Then add `make.keepsetco.com` as a custom domain on the Pages project, and point a CNAME at
-the project's `pages.dev` hostname from Namecheap, where the zone lives.
+There is no build step, so a deploy is an upload. Then add `make.keepsetco.com` as a custom
+domain on the project and put a CNAME at Namecheap — where the zone lives — pointing `make`
+at the project's `pages.dev` hostname.
+
+### Why this costs nothing, checked rather than assumed
+
+Verified against Cloudflare's own docs on 2026-09-10:
+
+- **Static assets are free and unlimited.** The Workers pricing page says exactly that —
+  *"Requests to static assets are free and unlimited"* — and *"There are no additional charges
+  for data transfer (egress) or throughput (bandwidth)."* This site is nothing but static
+  assets.
+- **500 builds a month** on the free plan, one at a time. A deploy per push to `main`; this
+  repo will not see 500 pushes in a month.
+- **20,000 files** per deployment and **25 MiB** per file. This repo has eleven files and the
+  largest is 84 KB.
+- **100 custom domains** per project, **100 projects** per account.
+- **The certificate is issued and renewed by Cloudflare at no cost.**
+
+Two constraints worth knowing before anyone changes the plan:
+
+- **A subdomain can live on external DNS; an apex cannot.** Pages will happily serve
+  `make.keepsetco.com` with the zone still at Namecheap. Serving `keepsetco.com` itself from
+  Pages would require moving the whole zone to Cloudflare — and that apex belongs to Shopify.
+  This is the reason the menu is a subdomain, beyond it simply reading better on a sign.
+- **A CAA record that excludes Cloudflare would block the certificate silently.**
+  `keepsetco.com` has no CAA records at all as of 2026-09-10, so nothing is in the way. If one
+  is ever added, Cloudflare has to be an allowed issuer or this site loses HTTPS.
