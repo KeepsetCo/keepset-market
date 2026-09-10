@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Keepset at the market</title>
+    <meta name="description" content="Pick what you want to make, upload your photo, and we print and press it at the table.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="fonts/jost-var.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="keepset.css">
+  </head>
+  <body>
+    <!--
+      Every link below goes to the booth app's scan route, never straight to the storefront.
+      That indirection is the security model: the booth token is handed out by the redirect,
+      so photographing the QR on the sign gets you a URL that does nothing on its own, and
+      switching a link off in the booth app stops it issuing tokens without breaking any
+      printed sign. See booth-app/app/routes/booth.$handle.scan.tsx.
+
+      NEVER put a token in this repo. It is public.
+
+      The handles are hardcoded on purpose — they change rarely, and a wrong one redirects
+      to the shop front rather than erroring. They come from the booth app: open a link at
+      booth.keepsetco.com/app and read the handle out of the address bar.
+    -->
+    <main class="wrap">
+      <header class="masthead">
+        <img src="logo.svg" alt="Keepset" width="148" height="86">
+        <h1>Made at the table</h1>
+        <p class="standfirst">Your photo, printed and pressed here, while you shop the rest of the market.</p>
+      </header>
+
+      <p class="eyebrow">Pick what you&rsquo;re making</p>
+
+      <ul class="menu">
+        <li>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-1/scan?shop=4gnmra-cv.myshopify.com">
+            <span class="count" aria-hidden="true">1<small>magnet</small></span>
+            <span class="what">
+              <strong>One magnet</strong>
+              <span>A single photo, 2½ inches square</span>
+            </span>
+            <span class="chev" aria-hidden="true">&rsaquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-4/scan?shop=4gnmra-cv.myshopify.com">
+            <span class="count" aria-hidden="true">4<small>magnets</small></span>
+            <span class="what">
+              <strong>Four magnets</strong>
+              <span>Four different photos</span>
+            </span>
+            <span class="chev" aria-hidden="true">&rsaquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MAGNET-9/scan?shop=4gnmra-cv.myshopify.com">
+            <span class="count" aria-hidden="true">9<small>magnets</small></span>
+            <span class="what">
+              <strong>Nine magnets</strong>
+              <span>Nine different photos</span>
+            </span>
+            <span class="chev" aria-hidden="true">&rsaquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MOSAIC-4/scan?shop=4gnmra-cv.myshopify.com">
+            <span class="count" aria-hidden="true">4<small>mosaic</small></span>
+            <span class="what">
+              <strong>Mosaic of four</strong>
+              <span>One photo split across four magnets</span>
+            </span>
+            <span class="chev" aria-hidden="true">&rsaquo;</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://booth.keepsetco.com/booth/HANDLE-MOSAIC-9/scan?shop=4gnmra-cv.myshopify.com">
+            <span class="count" aria-hidden="true">9<small>mosaic</small></span>
+            <span class="what">
+              <strong>Mosaic of nine</strong>
+              <span>One photo split across nine magnets</span>
+            </span>
+            <span class="chev" aria-hidden="true">&rsaquo;</span>
+          </a>
+        </li>
+      </ul>
+
+      <p class="eyebrow">How it goes</p>
+
+      <ol class="steps">
+        <li>Pick one above and upload your photo. Crop it however you like.</li>
+        <li>Pay here on your phone, or at the table.</li>
+        <li>We print and press it. Come back when it&rsquo;s ready.</li>
+      </ol>
+
+      <p class="note">
+        A single takes a few minutes. Bigger sets take longer &mdash; we&rsquo;ll give you a
+        time to come back, so go and enjoy the rest of the market.
+      </p>
+
+      <p class="away">
+        Not today? Everything here is at
+        <a href="https://keepsetco.com">keepsetco.com</a>, posted to you.
+      </p>
+    </main>
+  </body>
+</html>

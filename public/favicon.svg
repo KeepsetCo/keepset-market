@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-label="Keepset Co.">
+  <title>Keepset Co.</title>
+  <!--
+    Favicon variant. Differences from logo-icon.svg are deliberate, for 16px legibility:
+      · cream ground behind the whole mark, so it reads on a dark browser chrome
+      · larger gap and tighter squares — at 16px an 8-unit gap closes up visually
+      · no hairline stroke on the cream square; sub-pixel strokes turn to mud
+  -->
+  <rect width="100" height="100" rx="18" fill="#F3EFE7"/>
+  <g>
+    <rect x="14" y="14" width="33" height="33" rx="6" fill="#B6A48E"/>
+    <rect x="53" y="14" width="33" height="33" rx="6" fill="#41576B"/>
+    <rect x="14" y="53" width="33" height="33" rx="6" fill="#8A957F"/>
+    <rect x="53" y="53" width="33" height="33" rx="6" fill="#41576B" opacity="0.55"/>
+  </g>
+</svg>
