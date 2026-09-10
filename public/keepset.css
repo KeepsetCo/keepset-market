@@ -63,30 +63,16 @@ body {
 
 /* --- masthead --------------------------------------------------------- */
 
+/* The wordmark and nothing else. The sign they just scanned already said what this is;
+   repeating it here spends the first screen on something they have read. */
 .masthead {
   text-align: center;
-  padding-block: 0.5rem 2rem;
+  padding-block: 0.5rem 1.75rem;
 }
 
 .masthead img {
   width: 148px;
   height: auto;
-}
-
-h1 {
-  font-family: var(--display);
-  font-weight: 500;
-  font-size: clamp(2rem, 1.5rem + 2.4vw, 2.75rem);
-  line-height: 1.15;
-  letter-spacing: -0.01em;
-  margin: 1.25rem 0 0.5rem;
-  text-wrap: balance;
-}
-
-.standfirst {
-  margin: 0;
-  color: var(--ink-muted);
-  text-wrap: pretty;
 }
 
 /* --- the menu --------------------------------------------------------- */
