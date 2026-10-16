@@ -100,8 +100,21 @@ body {
   gap: 0.625rem;
 }
 
+/* A ROW ON A PHONE, a tile on anything wider.
+
+   Stacked full-width tiles put a square photograph above each caption, which on the screen
+   this page is actually read on — a phone, held at a stall, in daylight — pushed the second
+   option below the fold. Somebody choosing between two things has to be able to see two
+   things, and scrolling to find out the alternative exists is the one failure a two-item
+   menu can have.
+
+   So the photograph moves to the left and the card collapses to the height of its own text.
+   Both options then land on one screen together, under the steps, without the picture
+   having to shrink to a bullet. */
 .menu a {
-  display: block;
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
   min-height: var(--touch);
   background: var(--raised);
   border: 1px solid var(--border);
@@ -131,19 +144,27 @@ body {
    are on the element so nothing reflows once they land. */
 .shot {
   display: block;
-  width: 100%;
-  /* `height: auto` is load-bearing: the width/height attributes on the element are there so
-     the layout does not jump when the file lands, and without this the attribute wins and
-     the tile renders at the source photograph's own height. */
+  flex: none;
+  width: 7rem;
+  /* `height: auto` is load-bearing twice over. The width/height attributes on the element
+     are there so the layout cannot jump when the file lands, and without this the attribute
+     wins and the tile renders at the source photograph's own height. It is also what lets
+     `align-items: stretch` reach the image at all — a flex item only stretches when its
+     cross size is auto — so the photograph fills the card's full height however tall the
+     caption beside it turns out to be, and the two cards can differ without either one
+     showing a band of empty cream down its left edge.
+
+     No `aspect-ratio` on this layout, deliberately: the row's height comes from text that
+     is already on the page, so there is nothing to reserve and nothing to shift. */
   height: auto;
-  aspect-ratio: 1;
   object-fit: cover;
   background: var(--sunken);
 }
 
 .what {
   display: block;
-  padding: 0.875rem 1.125rem 1rem;
+  padding: 0.875rem 1.125rem 1rem 0;
+  align-self: center;
 }
 
 .what strong {
@@ -160,6 +181,31 @@ body {
   line-height: 1.45;
   margin-top: 0.125rem;
   text-wrap: pretty;
+}
+
+/* Given the width for it, the tiles come back.
+
+   The row above is a concession to a narrow screen, not an improvement on the original
+   idea: side by side at full size, the nine separate magnets and the one picture split
+   across nine are told apart at a glance, and no caption has to do that work. Two columns
+   is also still one screen, which was the whole point of changing it. */
+@media (min-width: 30rem) {
+  .menu {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .menu a {
+    display: block;
+  }
+
+  .shot {
+    width: 100%;
+    aspect-ratio: 1;
+  }
+
+  .what {
+    padding: 0.875rem 1.125rem 1rem;
+  }
 }
 
 /* --- how it works ----------------------------------------------------- */
